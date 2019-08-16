@@ -14,6 +14,8 @@ jobs:
         dart: [1]
     steps:
     - uses: actions/checkout@v1
+   - name: Install dart
+      run: brew tap dart-lang/dart
     - name: Install dart
       run: brew install dart
     - name: Run Test alarmClock
