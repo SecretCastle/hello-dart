@@ -3,7 +3,7 @@ import 'Clock.dart';
 /**
  * 定义测试时间戳
  */
-final clock_time = '23:09';
+final clock_time = '09:57';
 
 alarmClockDo() {
   print('do do do ~~~ do do do ~~~');
