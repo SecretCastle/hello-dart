@@ -45,25 +45,26 @@ class AlarmClock extends BasicClock {
     var mMin = compare['minusMin'];
     var mSecond = compare['minusSecond'];
     print(compare);
-    if (mHour >= 0 && mMin > 0) {
+    if (mHour > 0 && mMin > 0) {
       // 当天
       duration =
           new Duration(hours: mHour, minutes: mMin - 1, seconds: mSecond);
-    } else if (mHour >= 0 && mMin <= 0) {
+    } else if (mHour > 0 && mMin <= 0) {
       // 当天
       duration =
           new Duration(hours: mHour, minutes: 59 + mMin, seconds: mSecond);
-    } else if (mHour < 0 && mMin > 0) {
+    } else if (mHour <= 0 && mMin > 0) {
       // 第二天
       mHour = 23 + mHour;
       mMin = mMin - 1;
       duration = new Duration(hours: mHour, minutes: mMin, seconds: mSecond);
-    } else if (mHour < 0 && mMin <= 0) {
+    } else if (mHour <= 0 && mMin <= 0) {
       // 第二天
       mHour = 23 + mHour;
       mMin = 59 + mMin;
       duration = new Duration(hours: mHour, minutes: mMin, seconds: mSecond);
     }
+    print(duration);
     // 执行Timer
     new Timer(duration, alarmClockDo);
   }
