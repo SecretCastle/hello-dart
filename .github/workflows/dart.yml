@@ -1,0 +1,16 @@
+name: Dart CI
+
+on: 
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: macOS-10.14
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Test alarmClock
+      run: dart index.dart
