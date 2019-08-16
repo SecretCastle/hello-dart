@@ -12,7 +12,7 @@ compareTime(String target, DateTime compare) {
   var hour = compare.hour;
   // 获取compare分钟
   var min = compare.minute;
-  var seconds = 60 - compare.second;
+  var seconds = 59 - compare.second;
   var targetArr = target.split(':');
   // 目标时
   var targetHour = targetArr[0];
