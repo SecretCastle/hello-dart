@@ -53,16 +53,22 @@ class AlarmClock extends BasicClock {
       // 当天
       duration =
           new Duration(hours: mHour, minutes: 59 + mMin, seconds: mSecond);
-    } else if (mHour <= 0 && mMin > 0) {
+    } else if (mHour < 0 && mMin > 0) {
       // 第二天
       mHour = 23 + mHour;
       mMin = mMin - 1;
       duration = new Duration(hours: mHour, minutes: mMin, seconds: mSecond);
-    } else if (mHour <= 0 && mMin <= 0) {
+    } else if (mHour < 0 && mMin <= 0) {
       // 第二天
       mHour = 23 + mHour;
       mMin = 59 + mMin;
       duration = new Duration(hours: mHour, minutes: mMin, seconds: mSecond);
+    } else if (mHour == 0 && mMin > 0) {
+      duration =
+          new Duration(hours: 23 - mHour, minutes: mMin - 1, seconds: mSecond);
+    } else if (mHour == 0 && mMin <= 0) {
+      duration =
+          new Duration(hours: 23 - mHour, minutes: 59 + mMin, seconds: mSecond);
     }
     print(duration);
     // 执行Timer
