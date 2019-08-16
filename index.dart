@@ -10,6 +10,7 @@ alarmClockDo() {
 }
 
 main() {
-  final alarmClock = new AlarmClock(1);
-  alarmClock.initAlarmClock(clock_time, alarmClockDo);
+  // final alarmClock = new AlarmClock(1);
+  // alarmClock.initAlarmClock(clock_time, alarmClockDo);
+  print('hello github action');
 }
