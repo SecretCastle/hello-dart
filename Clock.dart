@@ -1,5 +1,4 @@
 import './util/tool.dart' as Tools;
-import 'dart:async';
 
 class BasicClock {
   num type;
@@ -44,7 +43,6 @@ class AlarmClock extends BasicClock {
     var mHour = compare['minusHour'];
     var mMin = compare['minusMin'];
     var mSecond = compare['minusSecond'];
-    print(compare);
     if (mHour > 0 && mMin > 0) {
       // 当天
       duration =
@@ -64,15 +62,14 @@ class AlarmClock extends BasicClock {
       mMin = 59 + mMin;
       duration = new Duration(hours: mHour, minutes: mMin, seconds: mSecond);
     } else if (mHour == 0 && mMin > 0) {
-      duration =
-          new Duration(hours: 23 - mHour, minutes: mMin - 1, seconds: mSecond);
+      duration = new Duration(minutes: mMin - 1, seconds: mSecond);
     } else if (mHour == 0 && mMin <= 0) {
       duration =
           new Duration(hours: 23 - mHour, minutes: 59 + mMin, seconds: mSecond);
     }
-    print(duration);
     // 执行Timer
-    new Timer(duration, alarmClockDo);
+    // new Timer(duration, alarmClockDo);
+    Tools.timer(alarmClockDo, 1, duration.inSeconds);
   }
 }
 
